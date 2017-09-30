@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::prefix('manage')->group(function () {
+
+    Route::get('/dashboard', [
+        'uses' => 'ManageController@dashboard',
+        'as' => 'manage.dashboard'
+    ]);
+
+});
+
+Route::get('/home', 'HomeController@index')->name('home');

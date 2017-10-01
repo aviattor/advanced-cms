@@ -37,20 +37,23 @@
                         </li>
 
                         <li>
-                            <a href="">
+                            <a href="{{ route('manage.dashboard') }}">
                                 <span class="icon"><i class="fa fa-fw fa-cog m-r-10"></i></span>
-                                Settings
+                                Manage
                             </a>
                         </li>
 
                         <li class="separator"></li>
 
                         <li>
-                            <a href="">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
                                 <span class="icon"><i class="fa fa-fw fa-sign-out m-r-10"></i></span>
                                 Logout
                             </a>
+
                         </li>
+
+                        @include('includes.forms.logout')
 
 
                     </ul>

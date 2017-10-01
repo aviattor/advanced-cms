@@ -17,12 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::prefix('manage')->group(function () {
+Route::prefix('manage')->middleware('role:superadministrator|administrator|editor|author|contributor')->group(function () {
+
+//    Route::get('/', 'ManageController@index');
 
     Route::get('/dashboard', [
         'uses' => 'ManageController@dashboard',
         'as' => 'manage.dashboard'
     ]);
+
+    Route::resource('/users', 'UsersController');
+
+    Route::redirect('/', route('manage.dashboard'));
 
 });
 
